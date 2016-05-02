@@ -37,21 +37,15 @@ def s2(x, y):
         if (r, g, b) == (100, 100, 100):
             im2.putpixel((x + 1, y + 1), (250, 250, 250))
 
-
 for x in range(width):
-    # on parcourt l'image de gauche à droite
     for y in range(height):
-        # on parcourt pour chaque x l image de haut en bas
         (r, g, b) = im2.getpixel((x, y))
-        # on enregistre le code de chaque pixel parcouru
         if (r, g, b) == (200, 0, 0):
             s1(x, y, 20)
 
 cpt = 0
 for x in range(width):
-    # on parcourt l'image de gauche à droite
     for y in range(height):
-        # on parcourt pour chaque x l image de haut en bas
         (rouge, vert, bleu) = im2.getpixel((x, y))
         if (rouge, vert, bleu) == (100, 100, 100):
             cpt += 1
