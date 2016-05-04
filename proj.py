@@ -4,16 +4,9 @@ from tkinter.messagebox import *
 from tkinter.simpledialog import *
 from PIL import Image, ImageDraw
 
-im1 = Image.open("ob.jpg")
+im1 = Image.open("rouge.jpg")
 draw = ImageDraw.Draw(im1)
-im1.save("ob.gif")
-
-
-def callback(event):
-    if askyesno("", "Confirmer ?"):
-        X = event.x
-        Y = event.y
-        print(X, Y)
+im1.save("rouge.gif")
 
 
 def pipette():
@@ -34,6 +27,8 @@ def pipette():
     canvas.pack()
     fenetre.mainloop()
 
+pipette()
+
 (R, G, B) = im1.getpixel((X, Y))
 
 (width, height) = im1.size
@@ -45,9 +40,9 @@ for x in range(width):
     for y in range(height):
         print "Processing pixel im1 (%d %d)" % (x, y)
         (r, g, b) = im1.getpixel((x, y))
-        if R - 10 <= r <= R + 10 and G - 10 <= g <= G + 10 and B - 10 <= b <= B + 10:
+        if R - 20 <= r <= R + 20 and G - 20 <= g <= G + 20 and B - 20 <= b <= B + 20:
             d.point((x, y), (200, 0, 0))
-im2.save("ob2.jpg")
+im2.save("rouge2.jpg")
 
 
 def s1(x, y, n):
@@ -87,6 +82,7 @@ for x in range(width):
             s2(x, y)
         if (rouge, vert, bleu) == (250, 250, 250):
             s2(x, y)
-im2.save("ob3.jpg")
+im2.save("rouge3.jpg")
 
 print(cpt)
+print(X, Y)

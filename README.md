@@ -1,2 +1,1 @@
-# merou
-Comptage de mérous sur un photo
+﻿ICI ON COMPTE LES MEROUS !!!
