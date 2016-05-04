@@ -2,21 +2,25 @@
 from tkFileDialog import *
 from tkinter.messagebox import *
 from tkinter.simpledialog import *
-from PIL import Image, ImageDraw
+from PIL import Image
+from PIL import ImageDraw
 
-im1 = Image.open("rouge.jpg")
+im1 = Image.open("merou.jpg")
 draw = ImageDraw.Draw(im1)
-im1.save("rouge.gif")
+im1.save("merou.gif")
 
 
 def pipette():
     def call(event):
         if askyesno("", "Confirmer ?"):
+            global X
+            global Y
             X = event.x
             Y = event.y
             print(X, Y)
+
     fenetre = Tk()
-    label = Label(fenetre, text="Cliquez sur un pixel pour selectionner la couleur")
+    label = Label(fenetre, text="Cliquez sur un pixel pour selectionner la couleur, puis fermer avec la croix.")
     label.pack()  # explication
     showinfo("Info", "N'oubliez pas de mettre l'image en .GIF...")  # affiche une info
     filepath = askopenfilename(title="Ouvrir une image", filetypes=[('GIF files', '.GIF')])
@@ -26,6 +30,7 @@ def pipette():
     canvas.bind('<Button-1>', call)  # active la pipette
     canvas.pack()
     fenetre.mainloop()
+
 
 pipette()
 
@@ -40,9 +45,9 @@ for x in range(width):
     for y in range(height):
         print "Processing pixel im1 (%d %d)" % (x, y)
         (r, g, b) = im1.getpixel((x, y))
-        if R - 20 <= r <= R + 20 and G - 20 <= g <= G + 20 and B - 20 <= b <= B + 20:
+        if R - 35 <= r <= R + 35 and G - 35 <= g <= G + 35 and B - 35 <= b <= B + 35:
             d.point((x, y), (200, 0, 0))
-im2.save("rouge2.jpg")
+im2.save("merou2.jpg")
 
 
 def s1(x, y, n):
@@ -82,7 +87,7 @@ for x in range(width):
             s2(x, y)
         if (rouge, vert, bleu) == (250, 250, 250):
             s2(x, y)
-im2.save("rouge3.jpg")
+im2.save("merou3.jpg")
 
 print(cpt)
 print(X, Y)
